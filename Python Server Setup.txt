@@ -1,0 +1,5 @@
+navigate to the folder where the files are in CMD
+
+python -m http.server
+
+Go to a browser and type: http://127.0.0.1:8000

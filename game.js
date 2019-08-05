@@ -1,4 +1,4 @@
-const _WIDTH_ = 700;
+const _WIDTH_ = 700;	//OG WIDTH is 450
 
 //Preload all the images needed
 function preload() {
@@ -45,7 +45,7 @@ function create() {
 
   const bugGenLoop = this.time.addEvent({		//delays the creation of the bugs to every 100 miliseconds
     //delay: 125,
-	delay: 125,
+	delay: 80,
     callback: bugGen,
     callbackScope: this,
     loop: true,
@@ -60,7 +60,7 @@ function create() {
   this.physics.add.collider(gameState.player, bugs, () => {		//Sets up the endgame for when a player and a bug collide. Ends the game.
     bugGenLoop.destroy();
     this.physics.pause();
-    this.add.text(152, 250, 'You fucking suck man', { fontSize: '15px', fill: '#000000' });
+    this.add.text(152, 250, 'You suck man', { fontSize: '15px', fill: '#000000' });
     this.add.text(152, 270, 'Click to Restart', { fontSize: '15px', fill: '#000000' });
     
 		
@@ -73,17 +73,17 @@ function create() {
 
 function update() {
   if (gameState.cursors.left.isDown) {
-    gameState.player.setVelocityX(-170);
+    gameState.player.setVelocityX(-300);
   } else if (gameState.cursors.right.isDown) {
-    gameState.player.setVelocityX(170);
+    gameState.player.setVelocityX(300);
   } else {
     gameState.player.setVelocityX(0);
   }
 }
 
 const config = {
-  //type: Phaser.AUTO,
-  type: Phaser.CANVAS,
+  type: Phaser.AUTO,
+  //type: Phaser.CANVAS,
   //width: 450,
   width: _WIDTH_,
   height: 500,
@@ -93,7 +93,7 @@ const config = {
     default: 'arcade',
     arcade: {
       //gravity: { y: 200 },
-	  gravity: { y: 300 },
+	  gravity: { y: 500 },
       enableBody: true,
     }
   },
